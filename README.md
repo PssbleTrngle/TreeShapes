@@ -4,7 +4,7 @@
 
 [MODRINTH]: https://modrinth.com/project/tree-shapes
 
-# Tree Shapes <!-- modrinth_exclude.start --> <img src="https://raw.githubusercontent.com/PssbleTrngle/TreeShapes/1.19.x/src/main/resources/assets/tree_shapes/icon.png" align="right" height="128" />
+# Tree Shapes
 
 [![Release](https://img.shields.io/github/v/release/PssbleTrngle/TreeShapes?label=Version&sort=semver)][DOWNLOAD]
 [![Issues](https://img.shields.io/github/issues/PssbleTrngle/TreeShapes?label=Issues)][ISSUES]
