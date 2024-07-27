@@ -3,7 +3,7 @@ package com.possible_triangle.tree_shapes
 import com.possible_triangle.tree_shapes.foliage.AdjustingBlobFoliagePlacer
 import com.possible_triangle.tree_shapes.foliage.PoplarFoliagePlacer
 import com.possible_triangle.tree_shapes.trunk.RootedTrunkPlacer
-import net.minecraft.core.Registry
+import net.minecraft.core.registries.Registries
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType
 import net.minecraftforge.fml.common.Mod
@@ -18,8 +18,8 @@ object TreeShapesMod {
     const val MOD_ID: String = "tree_shapes"
     val LOGGER: Logger = LogManager.getLogger()
 
-    private val FOLIAGE_PLACERS = DeferredRegister.create(Registry.FOLIAGE_PLACER_TYPE_REGISTRY, MOD_ID)
-    private val TRUNK_PLACERS = DeferredRegister.create(Registry.TRUNK_PLACER_TYPE_REGISTRY, MOD_ID)
+    private val FOLIAGE_PLACERS = DeferredRegister.create(Registries.FOLIAGE_PLACER_TYPE, MOD_ID)
+    private val TRUNK_PLACERS = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, MOD_ID)
 
     val POPLAR_FOLIAGE_TYPE = FOLIAGE_PLACERS.register("poplar") { FoliagePlacerType(PoplarFoliagePlacer.CODEC) }
     val BLOB_FOLIAGE_TYPE = FOLIAGE_PLACERS.register("blob") { FoliagePlacerType(AdjustingBlobFoliagePlacer.CODEC) }

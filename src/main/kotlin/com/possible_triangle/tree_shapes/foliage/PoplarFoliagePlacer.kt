@@ -8,10 +8,8 @@ import net.minecraft.core.BlockPos.MutableBlockPos
 import net.minecraft.util.RandomSource
 import net.minecraft.util.valueproviders.IntProvider
 import net.minecraft.world.level.LevelSimulatedReader
-import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer
-import java.util.function.BiConsumer
 import kotlin.math.max
 import kotlin.math.min
 
@@ -30,7 +28,7 @@ class PoplarFoliagePlacer(radius: IntProvider, offset: IntProvider, private val 
 
     override fun createFoliage(
         level: LevelSimulatedReader,
-        setBlock: BiConsumer<BlockPos, BlockState>,
+        setBlock: FoliageSetter,
         random: RandomSource,
         config: TreeConfiguration,
         something: Int,
@@ -65,7 +63,7 @@ class PoplarFoliagePlacer(radius: IntProvider, offset: IntProvider, private val 
 
     private fun placeLeaves(
         level: LevelSimulatedReader,
-        setBlock: BiConsumer<BlockPos, BlockState>,
+        setBlock: FoliageSetter,
         random: RandomSource,
         config: TreeConfiguration,
         pos: BlockPos,

@@ -1,5 +1,5 @@
 modLoader = "kotlinforforge"
-loaderVersion = "[3,)"
+loaderVersion = "[4,)"
 license = "https://github.com/${repository}/blob/1.19.x/LICENSE.txt"
 issueTrackerURL = "https://github.com/${repository}/issues"
 
@@ -13,13 +13,13 @@ description = '''Adds more trunk & foliage placers'''
 [[dependencies.${mod_id}]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2,)"
+versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
