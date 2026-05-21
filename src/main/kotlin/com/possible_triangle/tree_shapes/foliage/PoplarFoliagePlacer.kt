@@ -13,13 +13,16 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer
 import kotlin.math.max
 import kotlin.math.min
 
-class PoplarFoliagePlacer(radius: IntProvider, offset: IntProvider, private val height: IntProvider) :
-    FoliagePlacer(radius, offset) {
-
+class PoplarFoliagePlacer(
+    radius: IntProvider,
+    offset: IntProvider,
+    private val height: IntProvider,
+) : FoliagePlacer(radius, offset) {
     companion object {
         val CODEC: Codec<PoplarFoliagePlacer> =
             RecordCodecBuilder.create { instance ->
-                foliagePlacerParts(instance).and(IntProvider.codec(0, 24).fieldOf("height").forGetter { it.height })
+                foliagePlacerParts(instance)
+                    .and(IntProvider.codec(0, 24).fieldOf("height").forGetter { it.height })
                     .apply(instance, ::PoplarFoliagePlacer)
             }
     }
@@ -42,11 +45,12 @@ class PoplarFoliagePlacer(radius: IntProvider, offset: IntProvider, private val 
         val padding = 1
 
         for (y in 0..height) {
-            val factor = if (y > mid) {
-                (height - y) / (height - mid - padding).toFloat()
-            } else {
-                y / mid.toFloat()
-            }
+            val factor =
+                if (y > mid) {
+                    (height - y) / (height - mid - padding).toFloat()
+                } else {
+                    y / mid.toFloat()
+                }
 
             placeLeaves(
                 level,
@@ -56,7 +60,7 @@ class PoplarFoliagePlacer(radius: IntProvider, offset: IntProvider, private val 
                 attachment.pos(),
                 min(factor, 1F) * size,
                 y + offset - height / 2 - radius / 2,
-                attachment.doubleTrunk()
+                attachment.doubleTrunk(),
             )
         }
     }
@@ -93,11 +97,11 @@ class PoplarFoliagePlacer(radius: IntProvider, offset: IntProvider, private val 
         z: Int,
         radius: Int,
         doubleTrunk: Boolean,
-    ): Boolean {
-        return x == radius && z == radius
-    }
+    ): Boolean = x == radius && z == radius
 
-    override fun foliageHeight(random: RandomSource, trunkHeight: Int, config: TreeConfiguration): Int {
-        return height.sample(random)
-    }
+    override fun foliageHeight(
+        random: RandomSource,
+        trunkHeight: Int,
+        config: TreeConfiguration,
+    ): Int = height.sample(random)
 }

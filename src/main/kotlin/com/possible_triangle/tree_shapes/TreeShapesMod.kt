@@ -14,7 +14,6 @@ import thedarkcolour.kotlinforforge.forge.MOD_BUS
 
 @Mod(TreeShapesMod.MOD_ID)
 object TreeShapesMod {
-
     const val MOD_ID: String = "tree_shapes"
     val LOGGER: Logger = LogManager.getLogger()
 

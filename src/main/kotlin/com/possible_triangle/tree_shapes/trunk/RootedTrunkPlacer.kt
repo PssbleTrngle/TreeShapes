@@ -22,12 +22,16 @@ class RootedTrunkPlacer(
     heightRandB: Int,
     private val rootsProvider: Optional<BlockStateProvider>,
 ) : TrunkPlacer(baseHeight, heightRandA, heightRandB) {
-
     companion object {
-        val CODEC: Codec<RootedTrunkPlacer> = RecordCodecBuilder.create { instance ->
-            trunkPlacerParts(instance).and(BlockStateProvider.CODEC.optionalFieldOf("roots_provider")
-                .forGetter { it.rootsProvider }).apply(instance, ::RootedTrunkPlacer)
-        }
+        val CODEC: Codec<RootedTrunkPlacer> =
+            RecordCodecBuilder.create { instance ->
+                trunkPlacerParts(instance)
+                    .and(
+                        BlockStateProvider.CODEC
+                            .optionalFieldOf("roots_provider")
+                            .forGetter { it.rootsProvider },
+                    ).apply(instance, ::RootedTrunkPlacer)
+            }
     }
 
     override fun type() = TreeShapesMod.ROOTED_TRUNK_TYPE.get()
@@ -48,7 +52,7 @@ class RootedTrunkPlacer(
             createRoot(level, setBlock, random, pos, config)
         }
 
-        if(random.nextBoolean()) {
+        if (random.nextBoolean()) {
             createRoot(level, setBlock, random, pos.above(trunkHeight - 2), config)
         }
 
@@ -61,20 +65,23 @@ class RootedTrunkPlacer(
 
         val topOfTrunk = pos.above(trunkHeight + 1)
 
-        val branchEnds = (0 until branchCount).map {
-            createBranch(level, setBlock, random, topOfTrunk, config, branchHeight - random.nextInt(2, 3))
-        }
+        val branchEnds =
+            (0 until branchCount).map {
+                createBranch(level, setBlock, random, topOfTrunk, config, branchHeight - random.nextInt(2, 3))
+            }
 
-        val blob = pos.above(height).offset(
-            random.nextInt(-2, 3),
-            0,
-            random.nextInt(-2, 3),
-        )
+        val blob =
+            pos.above(height).offset(
+                random.nextInt(-2, 3),
+                0,
+                random.nextInt(-2, 3),
+            )
 
-        return (branchEnds
-                + FoliageAttachment(pos.above(height + 4), 2, true)
-                + FoliageAttachment(blob, 0, true)
-                ).toMutableList()
+        return (
+            branchEnds +
+                FoliageAttachment(pos.above(height + 4), 2, true) +
+                FoliageAttachment(blob, 0, true)
+        ).toMutableList()
     }
 
     private fun placeRoot(
@@ -98,8 +105,12 @@ class RootedTrunkPlacer(
     ) {
         val rootX = random.nextInt(2) * 3 - 1
         val rootZ = random.nextInt(2)
-        val at = if (random.nextBoolean()) pos.offset(rootX, 0, rootZ)
-        else pos.offset(rootZ, 0, rootX)
+        val at =
+            if (random.nextBoolean()) {
+                pos.offset(rootX, 0, rootZ)
+            } else {
+                pos.offset(rootZ, 0, rootX)
+            }
         placeRoot(level, setBlock, random, at, config)
     }
 
@@ -112,16 +123,22 @@ class RootedTrunkPlacer(
         length: Int,
     ): FoliageAttachment {
         val directionA = Direction.Plane.HORIZONTAL.getRandomDirection(random)
-        val directionB = if (random.nextBoolean()) directionA.clockWise
-        else directionA.counterClockWise
-
-        val mutable = listOf(directionA, directionB).fold(pos) { it, direction ->
-            when (direction) {
-                Direction.EAST -> it.east()
-                Direction.SOUTH -> it.south()
-                else -> it
+        val directionB =
+            if (random.nextBoolean()) {
+                directionA.clockWise
+            } else {
+                directionA.counterClockWise
             }
-        }.mutable()
+
+        val mutable =
+            listOf(directionA, directionB)
+                .fold(pos) { it, direction ->
+                    when (direction) {
+                        Direction.EAST -> it.east()
+                        Direction.SOUTH -> it.south()
+                        else -> it
+                    }
+                }.mutable()
 
         placeRoot(level, setBlock, random, mutable, config)
 

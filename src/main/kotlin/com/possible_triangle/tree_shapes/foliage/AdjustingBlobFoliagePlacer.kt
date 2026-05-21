@@ -9,9 +9,11 @@ import net.minecraft.world.level.LevelSimulatedReader
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer
 
-class AdjustingBlobFoliagePlacer(radius: IntProvider, offset: IntProvider, height: Int) :
-    FancyFoliagePlacer(radius, offset, height) {
-
+class AdjustingBlobFoliagePlacer(
+    radius: IntProvider,
+    offset: IntProvider,
+    height: Int,
+) : FancyFoliagePlacer(radius, offset, height) {
     override fun type() = TreeShapesMod.BLOB_FOLIAGE_TYPE.get()
 
     companion object {
