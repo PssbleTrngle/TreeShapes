@@ -1,10 +1,10 @@
 [ISSUES]: https://github.com/PssbleTrngle/TreeShapes/issues
-
 [DOWNLOAD]: https://modrinth.com/project/tree-shapes/versions
-
 [MODRINTH]: https://modrinth.com/project/tree-shapes
 
-# Tree Shapes
+<!-- modrinth_exclude.start -->
+
+# Tree Shapes <img src="src/main/resources/assets/tree_shapes/icon_512.png" align="right" height="128" />
 
 [![Release](https://img.shields.io/github/v/release/PssbleTrngle/TreeShapes?label=Version&sort=semver)][DOWNLOAD]
 [![Issues](https://img.shields.io/github/issues/PssbleTrngle/TreeShapes?label=Issues)][ISSUES]

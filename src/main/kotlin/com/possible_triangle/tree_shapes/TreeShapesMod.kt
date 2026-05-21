@@ -6,8 +6,8 @@ import com.possible_triangle.tree_shapes.trunk.RootedTrunkPlacer
 import net.minecraft.core.registries.Registries
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType
-import net.minecraftforge.fml.common.Mod
-import net.minecraftforge.registries.DeferredRegister
+import net.neoforged.fml.common.Mod
+import net.neoforged.neoforge.registries.DeferredRegister
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import thedarkcolour.kotlinforforge.forge.MOD_BUS
