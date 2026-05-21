@@ -1,5 +1,5 @@
 plugins {
-    id("com.possible-triangle.forge")
+    id("com.possible-triangle.neoforge")
 }
 
 withKotlin()
@@ -10,7 +10,7 @@ dependencies {
         modRuntimeOnly(pack.modrinth.glitchcore)
         modRuntimeOnly(pack.modrinth.terrablender)
         modRuntimeOnly(pack.modrinth.treeplacer)
-        modRuntimeOnly(pack.modrinth.botania)
+        // modRuntimeOnly(pack.modrinth.botania)
         modRuntimeOnly(pack.modrinth.patchouli)
         modRuntimeOnly(pack.modrinth.curios)
     }

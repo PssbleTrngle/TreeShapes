@@ -1,13 +1,13 @@
 name = "Treeplacer"
-filename = "treeplacer-forge-1.20.1-2.0.0.jar"
+filename = "treeplacer-neoforge-1.21.1-2.0.0.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/4im8hCxA/versions/veOamLA5/treeplacer-forge-1.20.1-2.0.0.jar"
+url = "https://cdn.modrinth.com/data/4im8hCxA/versions/qTllUY7D/treeplacer-neoforge-1.21.1-2.0.0.jar"
 hash-format = "sha512"
-hash = "50ef359a512c71cc6db9b5341d39c14974959d724e38694f2d93ac5eab5d4cdc909120bd3a386df433388df491f7d750a5743064cf6fe78d26400e078286480b"
+hash = "7ca28c41508817fdedf18e455e67da94a8117926351651aed9b694ca906ccc5f5852bab311ae640afad2fad34acdc90c15593ea6a675027094554994a2a4d655"
 
 [update]
 [update.modrinth]
 mod-id = "4im8hCxA"
-version = "veOamLA5"
+version = "qTllUY7D"
