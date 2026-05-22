@@ -1,6 +1,6 @@
 package com.possible_triangle.tree_shapes.foliage
 
-import com.mojang.serialization.Codec
+import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import com.possible_triangle.tree_shapes.TreeShapesMod.POPLAR_FOLIAGE_TYPE
 import net.minecraft.core.BlockPos
@@ -19,8 +19,8 @@ class PoplarFoliagePlacer(
     private val height: IntProvider,
 ) : FoliagePlacer(radius, offset) {
     companion object {
-        val CODEC: Codec<PoplarFoliagePlacer> =
-            RecordCodecBuilder.create { instance ->
+        val CODEC: MapCodec<PoplarFoliagePlacer> =
+            RecordCodecBuilder.mapCodec { instance ->
                 foliagePlacerParts(instance)
                     .and(IntProvider.codec(0, 24).fieldOf("height").forGetter { it.height })
                     .apply(instance, ::PoplarFoliagePlacer)

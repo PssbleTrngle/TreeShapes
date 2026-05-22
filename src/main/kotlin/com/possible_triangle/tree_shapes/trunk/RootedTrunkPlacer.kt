@@ -1,6 +1,6 @@
 package com.possible_triangle.tree_shapes.trunk
 
-import com.mojang.serialization.Codec
+import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import com.possible_triangle.tree_shapes.TreeShapesMod
 import net.minecraft.core.BlockPos
@@ -23,8 +23,8 @@ class RootedTrunkPlacer(
     private val rootsProvider: Optional<BlockStateProvider>,
 ) : TrunkPlacer(baseHeight, heightRandA, heightRandB) {
     companion object {
-        val CODEC: Codec<RootedTrunkPlacer> =
-            RecordCodecBuilder.create { instance ->
+        val CODEC: MapCodec<RootedTrunkPlacer> =
+            RecordCodecBuilder.mapCodec { instance ->
                 trunkPlacerParts(instance)
                     .and(
                         BlockStateProvider.CODEC

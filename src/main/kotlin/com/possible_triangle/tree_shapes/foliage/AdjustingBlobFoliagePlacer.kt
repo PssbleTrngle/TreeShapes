@@ -1,6 +1,6 @@
 package com.possible_triangle.tree_shapes.foliage
 
-import com.mojang.serialization.Codec
+import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import com.possible_triangle.tree_shapes.TreeShapesMod
 import net.minecraft.util.RandomSource
@@ -17,8 +17,8 @@ class AdjustingBlobFoliagePlacer(
     override fun type() = TreeShapesMod.BLOB_FOLIAGE_TYPE.get()
 
     companion object {
-        val CODEC: Codec<AdjustingBlobFoliagePlacer> =
-            RecordCodecBuilder.create { instance ->
+        val CODEC: MapCodec<AdjustingBlobFoliagePlacer> =
+            RecordCodecBuilder.mapCodec { instance ->
                 blobParts(instance).apply(instance, ::AdjustingBlobFoliagePlacer)
             }
     }

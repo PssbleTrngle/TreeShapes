@@ -10,7 +10,7 @@ import net.neoforged.fml.common.Mod
 import net.neoforged.neoforge.registries.DeferredRegister
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
-import thedarkcolour.kotlinforforge.forge.MOD_BUS
+import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 
 @Mod(TreeShapesMod.MOD_ID)
 object TreeShapesMod {
@@ -20,10 +20,10 @@ object TreeShapesMod {
     private val FOLIAGE_PLACERS = DeferredRegister.create(Registries.FOLIAGE_PLACER_TYPE, MOD_ID)
     private val TRUNK_PLACERS = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, MOD_ID)
 
-    val POPLAR_FOLIAGE_TYPE = FOLIAGE_PLACERS.register("poplar") { FoliagePlacerType(PoplarFoliagePlacer.CODEC) }
-    val BLOB_FOLIAGE_TYPE = FOLIAGE_PLACERS.register("blob") { FoliagePlacerType(AdjustingBlobFoliagePlacer.CODEC) }
+    val POPLAR_FOLIAGE_TYPE = FOLIAGE_PLACERS.register("poplar") { _ -> FoliagePlacerType(PoplarFoliagePlacer.CODEC) }
+    val BLOB_FOLIAGE_TYPE = FOLIAGE_PLACERS.register("blob") { _ -> FoliagePlacerType(AdjustingBlobFoliagePlacer.CODEC) }
 
-    val ROOTED_TRUNK_TYPE = TRUNK_PLACERS.register("rooted") { TrunkPlacerType(RootedTrunkPlacer.CODEC) }
+    val ROOTED_TRUNK_TYPE = TRUNK_PLACERS.register("rooted") { _ -> TrunkPlacerType(RootedTrunkPlacer.CODEC) }
 
     init {
         FOLIAGE_PLACERS.register(MOD_BUS)
