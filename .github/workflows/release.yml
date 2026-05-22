@@ -1,8 +1,8 @@
 # <meta>
 #    <source>@pssbletrngle/github-meta-generator</source>
 #    <version>1.0.72</version>
-#    <timestamp>2026-05-21T17:38:21.841Z</timestamp>
-#    <hash>7085f1963cbbf5</hash>
+#    <timestamp>2026-05-22T11:54:01.586Z</timestamp>
+#    <hash>2dfc95df89e02cd0</hash>
 # </meta>
 
 name: Release
@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
-      packages: write
+      packages: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,7 +41,6 @@ jobs:
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
           CHANGELOG: ${{ github.event.release.body }}
           RELEASE_VERSION: ${{ github.event.release.tag_name }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXUS_USER: ${{ secrets.NEXUS_USER }}
           NEXUS_TOKEN: ${{ secrets.NEXUS_TOKEN }}
 
