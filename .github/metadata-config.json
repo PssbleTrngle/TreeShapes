@@ -3,9 +3,5 @@
   "$version": "1.0",
   "type": "minecraft",
   "loaders": ["neoforge", "forge"],
-  "upload": {
-    "nexus": true,
-    "modrinth": true,
-    "curseforge": true
-  }
+  "upload": { "nexus": true, "modrinth": true, "curseforge": true }
 }
